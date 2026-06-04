@@ -1,9 +1,9 @@
 // ---------- PRODUCT DATABASE ----------
     const products = [
-        { id: 1, name: "faded mens jeans", brand: "Fendi", price: 40, originalPrice: 60, discount: "26%", image: "productimages/a3.jpeg" },
-        { id: 2, name: "Vintage Denim jeans", brand: "Levi's", price: 55, originalPrice: 85, discount: "35%", image: "productimages/images-1.jpeg" },
-        { id: 3, name: "Floral Summer Dress", brand: "Zara Thrift", price: 32, originalPrice: 50, discount: "36%", image: "productimages/images-2.jpeg" },
-        { id: 4, name: "ladies jeans", brand: "Nike Vintage", price: 70, originalPrice: 110, discount: "36%", image: "productimages/shopping.jpeg" },
+        { id: 1, name: "straight denim ", brand: "wrangler", price: 133.00, originalPrice: 145.00, discount: "26%", image: "productimages/a3.jpeg" },
+        { id: 2, name: "GIG & PIPO jeans", brand: "Levi's", price: 186.00, originalPrice: 190.00, discount: "35%", image: "productimages/images-1.jpeg" },
+        { id: 3, name: "stretch denim jeans", brand: "Everlane", price: 115.00, originalPrice: 135.00, discount: "36%", image: "productimages/images-2.jpeg" },
+        { id: 4, name: "Pocket & Cargo jeans", brand: "Uniqlo", price: 120.00, originalPrice: 150.00, discount: "36%", image: "productimages/shopping.jpeg" },
     ];
 
     // cart state: array of { id, name, price, image, quantity }
