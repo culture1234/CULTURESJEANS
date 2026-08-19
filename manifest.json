@@ -2,7 +2,7 @@
 "name":"CULTURESJEANS",
 "short_name":"CULTURE",
 "description":"An online business company that sells quality and affordable denim jeans for both male and female ",
-"start_url":"https://culture1234.github.io/CULTURESJEANS/",
+"start_url":"https://culture1234.github.io/CULTURESJEANS//",
 "scope":"/",
 "display": "standalone",
 "orientation": "portrait-primary",
@@ -30,13 +30,13 @@
  "purpose":"maskable"   
 },
 {
- "src":"i/icons/favicon-16x16.png",
+ "src":".i/icons/favicon-16x16.png",
  "sizes":"16x16",
  "type":"image/png",
  "purpose":"maskable"   
 },
 {
- "src":"i/icons/favicon-32x32.png",
+ "src":".i/icons/favicon-32x32.png",
  "sizes":"32x32",
  "type":"image/png",
  "purpose":"maskable"   
