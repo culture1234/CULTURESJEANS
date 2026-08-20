@@ -193,7 +193,7 @@ nav a {
 }
  
 
-.section h2 {
+/* .section h2 {
   text-align: center;
   padding-bottom: 10px;
 }
@@ -209,7 +209,7 @@ nav a {
   text-align: center;
   display: flex;
   justify-content: center;
-}
+} */
 
 /* footer style */
 footer {
@@ -376,3 +376,6 @@ header{
 
 
 
+
+
+ 
