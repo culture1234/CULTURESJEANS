@@ -1,438 +1,207 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-        body {
-            background-color: #faf9f6;
-        }
-        /* Header */
-        header {
-            background-color: #1e2a2e;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        .Brand h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-        .nav-main nav ul {
-            display: flex;
-            gap: 1.8rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        .nav-main nav ul a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
-        .nav-main nav ul a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-        /* Cart icon badge */
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            background: #2c3e2f;
-            padding: 8px 16px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        .cart-icon:hover {
-            background: #3a5540;
-        }
-        .cart-count {
-            background-color: #e67e22;
-            border-radius: 30px;
-            padding: 2px 8px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: white;
-        }
-        /* main layout */
-        .products-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .product-card {
-            background-color: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: transform 0.25s ease, box-shadow 0.2s;
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-        }
-        .product-image {
-            height: 280px;
-            background-color: #f0ede8;
-            position: relative;
-            overflow: hidden;
-        }
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .product-card:hover .product-image img {
-            transform: scale(1.03);
-        }
-        .product-info {
-            padding: 18px;
-        }
-        .brand {
-            font-size: 13px;
-            font-weight: 600;
-            color: #7f8c8d;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .product-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .prices {
-            display: flex;
-            gap: 12px;
-            align-items: baseline;
-            margin-bottom: 18px;
-            flex-wrap: wrap;
-        }
-        .current-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e2a2e;
-        }
-        .original-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.85rem;
-        }
-        .discount-price {
-            background: #e67e22;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-        .buy-now-btn, .add-to-cart-btn {
-            background-color: #1e2a2e;
-            color: white;
-            border: none;
-            padding: 10px 0;
-            width: 100%;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 5px;
-        }
-        .buy-now-btn:hover, .add-to-cart-btn:hover {
-            background-color: #2c3e2f;
-        }
-.cart-controls {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        .add-to-cart-btn {
-            background-color: #2c5538;
-        }
-        /* cart sidebar */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -420px;
-            width: 380px;
-            max-width: 90vw;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .cart-sidebar.open {
-            right: 0;
-        }
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 12px;
-            margin-bottom: 20px;
-        }
-        .cart-items {
-            flex: 1;
-            margin-bottom: 20px;
-        }
-        .cart-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .cart-item-img {
-            width: 65px;
-            height: 65px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .cart-item-details {
-            flex: 1;
-        }
-        .cart-item-name {
-            font-weight: 600;
-        }
-        .cart-item-price {
-            color: #2c3e2f;
-            font-weight: 500;
-        }
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 6px;
-        }
-        .qty-btn {
-            background: #e9ecef;
-            border: none;
-            width: 26px;
-            height: 26px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .remove-item {
-            color: #c0392b;
-            font-size: 12px;
-            cursor: pointer;
-            margin-left: 8px;
-            text-decoration: underline;
-        }
-        .cart-total {
-            font-size: 1.4rem;
-            font-weight: bold;
-            border-top: 2px dashed #ddd;
-            padding-top: 15px;
-            text-align: right;
-        }
-        .checkout-cart-btn {
-            background-color: #1e2a2e;
-            color: white;
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 40px;
-            font-weight: bold;
-            margin-top: 16px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            display: none;
-        }
-        .overlay.active {
-            display: block;
-        }
-        /* existing purchase form */
-        .purchase-form {
-            display: none;
-            background-color: white;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-width: 650px;
-            margin: 40px auto;
-        }
-        .product-sumary {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 18px;
-            margin-bottom: 20px;
-        }
-        .product-sumary img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 30px;
-        }
-        .submit-btn {
-            background-color: #1e2a2e;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 40px;
-            color: white;
-            font-weight: bold;
-        }
-        .thank-you {
-            display: none;
-            text-align: center;
-            background: #d4edda;
-            padding: 35px;
-            border-radius: 24px;
-            max-width: 600px;
-            margin: 40px auto;
-        }
-        
-/* footer style */
-footer {
-  background-color: #2c3e50;
-  color: white;
-  padding: 60px 0 30px;
-  text-align: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CULTURES JEANS- the best durable and denim clothes company in Ghana</title>
+
+ <meta name="description" content="knowing more about denim clothing which comes in differnt styles
+ such as the skinny, slim-fit, and baggy. They are durable and can be worn by both male and female 
+ practical lesson with -word application">
+
+ <!-- <keywords> -->
+
+    <meta name="keywords" content=" are jeans business casual, men's casual shoes with jeans,
+   casual men's shoes to wear with jeans, casual shoes to wear with jeans mens">
+
+   <!-- open Graph / Facebook Meta tags -->
+    
+   <meta property="og:type" content="website">
+    <meta property="og:url" content="hhttps://culture1234.github.io/CULTURESJEANS/">
+    <meta property="og:title" content="Denim style Essentials, classic jeans modern fashion, Your perfect pair of jeans">
+    <meta property="og:description" content="Discover premium jeans wear designed for comfort,style and confidence">
+    <meta property="og:image" content="https://culture1234.github.io/CULTURESJEANS/productimages/a3.jpeg">
+
+    <!-- Tweeter Meta tags -->
+
+     <meta property="twitter:card" content="sum_large_image">
+     <meta property="twitter:url" content="hhttps://culture1234.github.io/CULTURESJEANS/">
+     <meta property="twitter:title" content="simple,stylish Denim, jeans wear Goals, confidence wear denim">
+     <meta property="twitter:description" content="Denim that fits every vibe-casual, classy and comfort.
+     jeans wear made for comfort and style everyday ">
+     <meta property="twitter:image" content="hhttps://culture1234.github.io/CULTURESJEANS/productimages/productimages/shopping.jpeg">
 
 
-}
+<!-- structured Data -->
+  <script type="application/id+json">
+    {
+     
+    "@context:":https//schema.org,"
+     "@type":organization,"
+     "name": "CULTURES JEANS or denim casual clothes,"
+     "url": "https://culture1234.github.io/CULTURESJEANS/productimages/a3.jpeg">
+     "logo":"https://yourName.github.io/images/seo.jpg,"
+     "description" "quality casual jeans or denim clothes,"
+     
+     "mainEntity":{
+      "@type":{denim caual clothes}
+      "addressLocality," "Accra"
+      "headline":"denim casual clothes,"
+      "DatePublished":"2026-6-21"
+      
+     },
+     "address":{
+     "@type":"PostalAddress,"
+     "addressRegion":"Greater Accra,"
+     "postalCode":"233,"
+     "addressCountry":"GH"
 
-.footer-content {
-  display: flex;
-  text-align: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 40px;
+     }
+    }
+
+  </script>
+  <!-- Canonical URL-->
+   <link rel="Canonical" href="https://culture1234.github.io/CULTURESJEANS/product.html.html">
+
+
+   <link rel="stylesheet" href="product.css">
+   <link rel="stylesheet" href="subscribe.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+</head>
+<body>
   
-}
+    <!-- header -->
+    <header>
 
-.footer-section {
-  flex: 1;
-  min-width: 250px;
+       <div class="Brand">
+         <h1>CULTURESJEANS</h1>
+       </div>
 
-}
+  <div class="nav-main">
+        <nav>
+            <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="Product.html"><li>Products</li></a>
+            <a href="about.html"><li>About</li></a>
+            <a href="contact.html"><li>Contact</li></a>
+            </ul>
+  
+        </nav>
+    </div>
+         
+         <div class="cart-icon" id="cartIconBtn">
+        🛒 Cart <span class="cart-count" id="cartCountBadge">0</span>
+    </div>
 
-.footer-section h3{
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem ;
-  color: var (--primary);
-}
+    </header>
 
-.footer-section p, .footer-section li{
-  margin-bottom: 1rem;
+     <!-- Products Grid -->
+    <div class="products-container" id="productsContainer">
+    <!-- product cards will be injected via JS with full dataset -->
+    </div>
 
-}
-
-.footer-section a {
-  color: #ddd;
-  text-decoration: none;
-  transition: color 0.3s;
- 
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 1.5rem;
-}
-
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  background: rgb(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transition: all 0.3s;
-
-}
-
-.social-icons a:hover {
-  background-color: chocolate;
-  color: #ddd;
-  transform: translateY(-3px);
-}
-
-.copyright {
-  padding: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  font-size: 0.9rem;
-  color: #aaa;
-}
-
-.footer-line{
-  border: none;
-  border-top: 1px solid #0a0707;
-  margin: 20px 0;
-
-}
-
-.copy{
-  font-size: x-small;
-}
+<!-- Cart Sidebar -->
+<div class="overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Your Cart 🛍️</h3>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItemsList">
+        <div class="empty-cart-msg">Cart is empty</div>
+    </div>
+    <div class="cart-total" id="cartTotalPrice">Total: ₵0</div>
+    <button class="checkout-cart-btn" id="proceedCheckoutFromCart">Proceed to Checkout</button>
+</div>
 
 
-        footer {
-            background: #1e2a2e;
-            color: white;
-            text-align: center;
-            padding: 28px;
-            margin-top: 40px;
-        }
-        @media (max-width: 600px) {
-            .products-container { padding: 20px; gap: 16px; }
-            .cart-sidebar { width: 100%; right: -100%; }
-        }
-        .empty-cart-msg {
-            text-align: center;
-            color: gray;
-            padding: 30px 0;
-        }
+          <!-- form fill -->
+
+        <div id="purchaseForm" class="purchase-form">     
+    <h2>Complete your Purchase</h2>
+    <div class="product-sumary">
+        <img id="selectedProductImage" src="" alt="selected product">
+        <div>
+            <h3 id="selectedProductName"></h3>
+            <p id="selectedProductPrice"></p>
+        </div>
+    </div>
+    <form id="checkoutForm">
+        <div class="form-group"><label>Full name</label><input type="text" id="name" required></div>
+        <div class="form-group"><label>Email</label><input type="email" id="email" required></div>
+        <div class="form-group"><label>Address</label><input type="text" id="address" required></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="phone" required></div>
+        <button type="submit" class="submit-btn">Send Order via Email</button>
+    </form>
+    <div class="email-instructions"><h3>How it Works</h3><p>Clicking send opens your email client. Review & send to place order.</p></div>
+</div>
+<div id="thankYou" class="thank-you">
+    <h2>✅ Thank You For Your Purchase</h2>
+    <p>Your order email has been prepared. Please check your email client and click send.</p>
+</div>
+
+
+  <!-- footer -->
+     <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section" >
+            <h3> CULTURESJEANS</h3>
+            <p>Providing you with quality, denim and affordable jeans at low price</p>
+            <div class="social-icons">
+              <a href="https://web.facebook.com/profile.php?id=61592027625216"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/culturesjeans"><i class="fab fa-instagram"></i></a>
+              <a href="https://x.com/SiawEmmanu4903"><i class="fab fa-x"></i></a>
+              <a href="#"> <i class="fab-brands fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+          </div>
+
+          <div class="footer-section">
+            <div class="location-content">
+              <div class="address">
+                <h3> contact Info</h3>
+                <p> <i class="fas-map-marker-alt"></i> 8 Borkorborkor close, Gc-156-0110, Ablekuma</p>
+                <p> <i class="fa-phone"></i> (233)2483166</p>
+                <p> <i class="fas fa-envelope"></i>Email: <a style="color: beige" href= "mailto:siawemmanueljnr@gmail.com"> info@siawemmanueljnr@gmail.com</a></p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <div class="hours">
+              <h3>Opening Hours</h3>
+              <p>Monday - Saturday: 6am to 8pm</p>
+              <p> Sundays: 12noon to 8pm</p>
+            
+            </div>
+            </div>
+            </div>
+
+            <hr class="footer-line">
+            <div class="year">
+              <p class="copy">&copy; <span id="year"></span> CULTURESJEANS. All Rights Reserved. Powered by <a  style="color: beige," href="mailto: siawemmanuel@gmail.com"> CULTURESJEANS</a></p>
+            </div>
+
+
+      </div>
+     </footer>
+
+
+
+            
+
+
+
+
+
+
+
+
+
+<script src="product.js"></script>
+
+</body>
+</html>
