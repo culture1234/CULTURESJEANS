@@ -1,83 +1,205 @@
-// CULTURESJEANS Contact Form JavaScript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CULTURES JEANS- the best durable and denim clothes company in Ghana</title>
 
-document.addEventListener("DOMContentLoaded", function () {
+ <meta name="description" content="knowing more about denim clothing which comes in differnt styles
+ such as the skinny, slim-fit, and baggy. They are durable and can be worn by both male and female 
+ practical lesson with -word application">
 
-    const contactForm = document.querySelector(".contact-form form");
+ <!-- <keywords> -->
 
-    if (!contactForm) {
-        console.error("Contact form not found.");
-        return;
+    <meta name="keywords" content=" are jeans business casual, men's casual shoes with jeans,
+   casual men's shoes to wear with jeans, casual shoes to wear with jeans mens">
+
+   <!-- open Graph / Facebook Meta tags -->
+    
+   <meta property="og:type" content="website">
+    <meta property="og:url" content="hhttps://culture1234.github.io/CULTURESJEANS/">
+    <meta property="og:title" content="Denim style Essentials, classic jeans modern fashion, Your perfect pair of jeans">
+    <meta property="og:description" content="Discover premium jeans wear designed for comfort,style and confidence">
+    <meta property="og:image" content="https://culture1234.github.io/CULTURESJEANS/productimages/a3.jpeg">
+
+    <!-- Tweeter Meta tags -->
+
+     <meta property="twitter:card" content="sum_large_image">
+     <meta property="twitter:url" content="hhttps://culture1234.github.io/CULTURESJEANS/">
+     <meta property="twitter:title" content="simple,stylish Denim, jeans wear Goals, confidence wear denim">
+     <meta property="twitter:description" content="Denim that fits every vibe-casual, classy and comfort.
+     jeans wear made for comfort and style everyday ">
+     <meta property="twitter:image" content="hhttps://culture1234.github.io/CULTURESJEANS/productimages/productimages/shopping.jpeg">
+
+
+<!-- structured Data -->
+  <script type="application/id+json">
+    {
+     
+    "@context:":https//schema.org,"
+     "@type":organization,"
+     "name": "CULTURES JEANS or denim casual clothes,"
+     "url": "https://culture1234.github.io/CULTURESJEANS/productimages/a3.jpeg">
+     "logo":"https://yourName.github.io/images/seo.jpg,"
+     "description" "quality casual jeans or denim clothes,"
+     
+     "mainEntity":{
+      "@type":{denim caual clothes}
+      "addressLocality," "Accra"
+      "headline":"denim casual clothes,"
+      "DatePublished":"2026-6-21"
+      
+     },
+     "address":{
+     "@type":"PostalAddress,"
+     "addressRegion":"Greater Accra,"
+     "postalCode":"233,"
+     "addressCountry":"GH"
+
+     }
     }
 
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Get form values
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        // Basic validation
-        if (name === "") {
-            alert("Please enter your full name.");
-            document.getElementById("name").focus();
-            return;
-        }
-
-        if (email === "") {
-            alert("Please enter your email address.");
-            document.getElementById("email").focus();
-            return;
-        }
-
-        // Email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
-            document.getElementById("email").focus();
-            return;
-        }
-
-        if (message === "") {
-            alert("Please enter your message.");
-            document.getElementById("message").focus();
-            return;
-        }
-
-        // Create email message
-        const subject = encodeURIComponent(
-            "CULTURESJEANS Contact Form Message"
-        );
-
-        const body = encodeURIComponent(
-            "Hello CULTURESJEANS,\n\n" +
-            "I would like to contact you.\n\n" +
-            "Full Name: " + name + "\n" +
-            "Email: " + email + "\n" +
-            "Phone: " + (phone || "Not provided") + "\n\n" +
-            "Message:\n" + message
-        );
-
-        // Open user's email application
-        window.location.href =
-            "mailto:siawemmanueljnr@gmail.com" +
-            "?subject=" + subject +
-            "&body=" + body;
-
-        // Clear the form
-        contactForm.reset();
-
-        alert("Thank you for contacting CULTURESJEANS!");
-    });
+  </script>
+  <!-- Canonical URL-->
+   <link rel="Canonical" href="https://culture1234.github.io/CULTURESJEANS/product.html.html">
 
 
-    // Automatically update footer year
-    const yearElement = document.getElementById("year");
+   <link rel="stylesheet" href="product.css">
+   <link rel="stylesheet" href="subscribe.css">
 
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+</head>
+<body>
+  
+    <!-- header -->
+    <header>
 
-});
+       <div class="Brand">
+         <h1>CULTURESJEANS</h1>
+       </div>
+
+<!-- Hamburger -->
+         <div class="burger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+         </div>
+       
+  <div class="nav-main">
+        <nav>
+            <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="Product.html"><li>Products</li></a>
+            <a href="about.html"><li>About</li></a>
+            <a href="contact.html"><li>Contact</li></a>
+            </ul>
+  
+        </nav>
+    </div>
+         
+         <div class="cart-icon" id="cartIconBtn">
+        🛒 Cart <span class="cart-count" id="cartCountBadge">0</span>
+    </div>
+
+    </header>
+
+     <!-- Products Grid -->
+    <div class="products-container" id="productsContainer">
+    <!-- product cards will be injected via JS with full dataset -->
+    </div>
+
+<!-- Cart Sidebar -->
+<div class="overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Your Cart 🛍️</h3>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItemsList">
+        <div class="empty-cart-msg">Cart is empty</div>
+    </div>
+    <div class="cart-total" id="cartTotalPrice">Total: ₵0</div>
+    <button class="checkout-cart-btn" id="proceedCheckoutFromCart">Proceed to Checkout</button>
+</div>
+
+
+          <!-- form fill -->
+
+        <div id="purchaseForm" class="purchase-form">     
+    <h2>Complete your Purchase</h2>
+    <div class="product-sumary">
+        <img id="selectedProductImage" src="" alt="selected product">
+        <div>
+            <h3 id="selectedProductName"></h3>
+            <p id="selectedProductPrice"></p>
+        </div>
+    </div>
+    <form id="checkoutForm">
+        <div class="form-group"><label>Full name</label><input type="text" id="name" required></div>
+        <div class="form-group"><label>Email</label><input type="email" id="email" required></div>
+        <div class="form-group"><label>Address</label><input type="text" id="address" required></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="phone" required></div>
+        <button type="submit" class="submit-btn">Send Order via Email</button>
+    </form>
+    <div class="email-instructions"><h3>How it Works</h3><p>Clicking send opens your email client. Review & send to place order.</p></div>
+</div>
+<div id="thankYou" class="thank-you">
+    <h2>✅ Thank You For Your Purchase</h2>
+    <p>Your order email has been prepared. Please check your email client and click send.</p>
+</div>
+
+
+  <!-- footer -->
+     <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section" >
+            <h3> CULTURESJEANS</h3>
+            <p>Providing you with quality, denim and affordable jeans at low price</p>
+            <div class="social-icons">
+              <a href="https://web.facebook.com/profile.php?id=61592027625216"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/culturesjeans"><i class="fab fa-instagram"></i></a>
+              <a href="https://x.com/SiawEmmanu4903"><i class="fab fa-x"></i></a>
+              <a href="#"> <i class="fab-brands fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+          </div>
+
+          <div class="footer-section">
+            <div class="location-content">
+              <div class="address">
+                <h3> contact Info</h3>
+                <p> <i class="fas-map-marker-alt"></i> 8 Borkorborkor close, Gc-156-0110, Ablekuma</p>
+                <p> <i class="fa-phone"></i> (233)2483166</p>
+                <p> <i class="fas fa-envelope"></i>Email: <a style="color: beige" href= "mailto:siawemmanueljnr@gmail.com"> info@siawemmanueljnr@gmail.com</a></p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <div class="hours">
+              <h3>Opening Hours</h3>
+              <p>Monday - Saturday: 6am to 8pm</p>
+              <p> Sundays: 12noon to 8pm</p>
+            
+            </div>
+            </div>
+            </div>
+
+            <hr class="footer-line">
+            <div class="year">
+              <p class="copy">&copy; <span id="year"></span> CULTURESJEANS. All Rights Reserved. Powered by <a  style="color: beige," href="mailto: siawemmanuel@gmail.com"> CULTURESJEANS</a></p>
+            </div>
+
+
+      </div>
+     </footer>
+
+     <script src="product.js"></script>
+     <script src="burgerIcon.js"></script>
+
+
+
+
+</body>
+</html>
