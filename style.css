@@ -62,7 +62,7 @@ nav a {
   /* the hero style */
 
   .hero {
-   background:linear-gradient(rgba(187, 187, 189, 0.2),rgba(24, 55, 85, 0.9)) ,url('images/b3.jpeg') center/cover no-repeat;                                           
+   background:linear-gradient(rgba(187, 187, 189, 0.2),rgba(24, 55, 85, 0.9)) ,url('images/s1.webp') center/cover no-repeat;                                           
    height: 70vh;
    display: flex;
    align-items:center;
